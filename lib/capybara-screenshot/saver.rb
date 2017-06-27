@@ -86,9 +86,15 @@ module Capybara
       end
 
       def output_screenshot_path
-        output "HTML screenshot: #{html_path}" if html_saved?
-        output "Image screenshot: #{screenshot_path}" if screenshot_saved?
+        if document_root = Capybara::Screenshot.document_root and url_root = Capybara::Screenshot.url_root
+          output "HTML URL: #{html_path.sub(document_root, url_root)}" if html_saved?
+          output "Image URL: #{screenshot_path.sub(document_root, url_root)}" if screenshot_saved?
+        else
+          output "HTML screenshot: #{html_path}" if html_saved?
+          output "Image screenshot: #{screenshot_path}" if screenshot_saved?
+        end
       end
+
 
       # Print image to screen, if imgcat is available
       def display_image
