@@ -11,6 +11,8 @@ module Capybara
       attr_accessor :prune_strategy
       attr_accessor :s3_configuration
       attr_accessor :s3_object_configuration
+      attr_accessor :document_root
+      attr_accessor :url_root
     end
 
     self.autosave_on_failure = true
