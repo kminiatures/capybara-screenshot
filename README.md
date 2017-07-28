@@ -1,8 +1,8 @@
 capybara-screenshot gem
 =======================
 
-[![Build Status](https://travis-ci.org/mattheworiordan/capybara-screenshot.png)](https://travis-ci.org/mattheworiordan/capybara-screenshot)
-[![Code Climate](https://d3s6mut3hikguw.cloudfront.net/github/mattheworiordan/capybara-screenshot.png)](https://codeclimate.com/github/mattheworiordan/capybara-screenshot)
+[![Build Status](https://travis-ci.org/mattheworiordan/capybara-screenshot.svg)](https://travis-ci.org/mattheworiordan/capybara-screenshot)
+[![Code Climate](https://d3s6mut3hikguw.cloudfront.net/github/mattheworiordan/capybara-screenshot.svg)](https://codeclimate.com/github/mattheworiordan/capybara-screenshot)
 [![Gem Version](https://badge.fury.io/rb/capybara-screenshot.svg)](http://badge.fury.io/rb/capybara-screenshot)
 
 #### Capture a screen shot for every test failure automatically!
@@ -223,6 +223,14 @@ Capybara::Screenshot.s3_object_configuration = {
 }
 ```
 
+You may optionally specify a `:key_prefix` when generating the S3 keys, which can be used to create virtual [folders](http://docs.aws.amazon.com/AmazonS3/latest/UG/FolderOperations.html) in S3, e.g.:
+
+```ruby
+Capybara::Screenshot.s3_configuration = {
+  ... # other config here
+  key_prefix: "some/folder/"
+}
+```
 
 Pruning old screenshots automatically
 --------------------------
